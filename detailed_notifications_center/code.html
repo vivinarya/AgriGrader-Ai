@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriGrader AI - Notifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0fbd1e",
+                        "primary-light": "#dcfce0",
+                        "primary-dark": "#0a8a15",
+                        "secondary": "#3b82f6", // Blue for Reports
+                        "alert": "#f59e0b", // Amber for Alerts
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102212",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e1d",
+                        "text-main": "#1e293b",
+                        "text-muted": "#64748b",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#2d4a30",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-100 min-h-screen flex flex-col font-display antialiased overflow-hidden">
+<!-- Header -->
+<header class="sticky top-0 z-20 bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-border-light dark:border-border-dark px-4 py-3 flex items-center justify-between shadow-sm">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-main dark:text-gray-100">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold flex-1 text-center">Notifications</h1>
+<button class="p-2 -mr-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-main dark:text-gray-100 relative">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto hide-scrollbar pb-24">
+<!-- Today Section -->
+<div class="mb-2">
+<div class="px-5 pt-6 pb-2 sticky top-0 bg-background-light/95 dark:bg-background-dark/95 z-10 backdrop-blur-sm">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-text-muted dark:text-gray-400">Today</h2>
+</div>
+<div class="flex flex-col">
+<!-- Notification Item: Sales (Unread) -->
+<div class="group relative flex items-start gap-4 p-4 hover:bg-white dark:hover:bg-surface-dark transition-colors border-b border-border-light dark:border-border-dark last:border-0 cursor-pointer">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary rounded-l-full"></div>
+<div class="shrink-0">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-light dark:bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">sell</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-semibold text-text-main dark:text-gray-100 truncate pr-2">Sale Confirmed</h3>
+<span class="text-xs text-text-muted dark:text-gray-400 whitespace-nowrap">12:45 PM</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-300 line-clamp-2">
+                            Batch #204 successfully sold to Whole Foods Market. Revenue generated: $1,240.
+                        </p>
+</div>
+</div>
+<!-- Notification Item: Report (Unread) -->
+<div class="group relative flex items-start gap-4 p-4 hover:bg-white dark:hover:bg-surface-dark transition-colors border-b border-border-light dark:border-border-dark last:border-0 cursor-pointer">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-secondary rounded-l-full"></div>
+<div class="shrink-0">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30 text-secondary">
+<span class="material-symbols-outlined text-xl">description</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-semibold text-text-main dark:text-gray-100 truncate pr-2">Grading Report Ready</h3>
+<span class="text-xs text-text-muted dark:text-gray-400 whitespace-nowrap">10:30 AM</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-300 line-clamp-2">
+                            Apples - Honeycrisp analysis complete. Average grade: A. View detailed breakdown.
+                        </p>
+</div>
+</div>
+<!-- Notification Item: Alert (Read) -->
+<div class="group relative flex items-start gap-4 p-4 hover:bg-white dark:hover:bg-surface-dark transition-colors border-b border-border-light dark:border-border-dark last:border-0 cursor-pointer opacity-75 hover:opacity-100">
+<div class="shrink-0">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/30 text-alert">
+<span class="material-symbols-outlined text-xl">warning</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-medium text-text-main dark:text-gray-200 truncate pr-2">Quality Alert</h3>
+<span class="text-xs text-text-muted dark:text-gray-500 whitespace-nowrap">09:15 AM</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 line-clamp-2">
+                            Detected blemishes in Batch #205 exceeding 5% threshold. Please review manually.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Yesterday Section -->
+<div class="mb-2">
+<div class="px-5 pt-6 pb-2 sticky top-0 bg-background-light/95 dark:bg-background-dark/95 z-10 backdrop-blur-sm">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-text-muted dark:text-gray-400">Yesterday</h2>
+</div>
+<div class="flex flex-col">
+<!-- Notification Item: Report (Read) -->
+<div class="group relative flex items-start gap-4 p-4 hover:bg-white dark:hover:bg-surface-dark transition-colors border-b border-border-light dark:border-border-dark last:border-0 cursor-pointer opacity-75 hover:opacity-100">
+<div class="shrink-0">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30 text-secondary">
+<span class="material-symbols-outlined text-xl">description</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-medium text-text-main dark:text-gray-200 truncate pr-2">Weekly Summary</h3>
+<span class="text-xs text-text-muted dark:text-gray-500 whitespace-nowrap">Yesterday</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 line-clamp-2">
+                            Your weekly grading performance report is available. You processed 15 batches.
+                        </p>
+</div>
+</div>
+<!-- Notification Item: Sales (Read) -->
+<div class="group relative flex items-start gap-4 p-4 hover:bg-white dark:hover:bg-surface-dark transition-colors border-b border-border-light dark:border-border-dark last:border-0 cursor-pointer opacity-75 hover:opacity-100">
+<div class="shrink-0">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-light dark:bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">sell</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-medium text-text-main dark:text-gray-200 truncate pr-2">Market Price Update</h3>
+<span class="text-xs text-text-muted dark:text-gray-500 whitespace-nowrap">Yesterday</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 line-clamp-2">
+                            Tomato prices have increased by 12% in your region.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Earlier Section -->
+<div class="mb-2">
+<div class="px-5 pt-6 pb-2 sticky top-0 bg-background-light/95 dark:bg-background-dark/95 z-10 backdrop-blur-sm">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-text-muted dark:text-gray-400">Earlier</h2>
+</div>
+<div class="flex flex-col">
+<!-- Notification Item: Alert (Read) -->
+<div class="group relative flex items-start gap-4 p-4 hover:bg-white dark:hover:bg-surface-dark transition-colors border-b border-border-light dark:border-border-dark last:border-0 cursor-pointer opacity-75 hover:opacity-100">
+<div class="shrink-0">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/30 text-alert">
+<span class="material-symbols-outlined text-xl">cloud_off</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-medium text-text-main dark:text-gray-200 truncate pr-2">Sync Error</h3>
+<span class="text-xs text-text-muted dark:text-gray-500 whitespace-nowrap">Oct 24</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 line-clamp-2">
+                            Failed to sync batch #198 due to poor connection. Tap to retry.
+                        </p>
+</div>
+</div>
+<!-- Notification Item: Sales (Read) -->
+<div class="group relative flex items-start gap-4 p-4 hover:bg-white dark:hover:bg-surface-dark transition-colors border-b border-border-light dark:border-border-dark last:border-0 cursor-pointer opacity-75 hover:opacity-100">
+<div class="shrink-0">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-light dark:bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">sell</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-medium text-text-main dark:text-gray-200 truncate pr-2">New Buyer Request</h3>
+<span class="text-xs text-text-muted dark:text-gray-500 whitespace-nowrap">Oct 22</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 line-clamp-2">
+                            Local Co-op is interested in your grade B potatoes.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty Space at bottom for safe scrolling behind navbar -->
+<div class="h-8"></div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-30 bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark pb-safe">
+<div class="flex justify-around items-center px-2 py-3">
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<div class="p-1 rounded-xl group-hover:bg-background-light dark:group-hover:bg-background-dark/50 transition-colors">
+<span class="material-symbols-outlined text-text-muted dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary transition-colors">home</span>
+</div>
+<span class="text-[10px] font-medium text-text-muted dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary transition-colors">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<div class="p-1 rounded-xl group-hover:bg-background-light dark:group-hover:bg-background-dark/50 transition-colors">
+<span class="material-symbols-outlined text-text-muted dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary transition-colors">photo_camera</span>
+</div>
+<span class="text-[10px] font-medium text-text-muted dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary transition-colors">Grade</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group relative" href="#">
+<!-- Active Indicator -->
+<div class="absolute -top-3 w-10 h-0.5 bg-primary rounded-b-lg"></div>
+<div class="p-1 rounded-xl bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary dark:text-primary fill-current">notifications</span>
+</div>
+<span class="text-[10px] font-bold text-primary dark:text-primary">Alerts</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<div class="p-1 rounded-xl group-hover:bg-background-light dark:group-hover:bg-background-dark/50 transition-colors">
+<span class="material-symbols-outlined text-text-muted dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary transition-colors">person</span>
+</div>
+<span class="text-[10px] font-medium text-text-muted dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary transition-colors">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Safe area padding for bottom nav on older devices not supporting env() -->
+<style>
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+</body></html>

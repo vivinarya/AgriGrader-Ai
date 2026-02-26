@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Crop Capture and Upload Screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0fbd1e",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102212",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-hidden relative">
+<!-- Top Bar -->
+<header class="flex items-center justify-between p-4 z-20 absolute top-0 left-0 w-full bg-gradient-to-b from-black/50 to-transparent">
+<button class="flex items-center justify-center size-10 rounded-full bg-white/20 backdrop-blur-md text-white hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-white text-lg font-semibold tracking-wide drop-shadow-md">Grade Produce</h2>
+<button class="flex items-center justify-center size-10 rounded-full bg-white/20 backdrop-blur-md text-white hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</header>
+<!-- Camera Viewport Area -->
+<main class="flex-1 relative w-full h-[65vh] bg-slate-900 overflow-hidden group">
+<!-- Simulated Camera Feed Image -->
+<img alt="Fresh green vegetables close up texture" class="absolute inset-0 w-full h-full object-cover opacity-90" data-alt="Close up of fresh green leafy vegetables or crop texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAM90sQERV44gKZjbtJA4NeGs-VxT2EdUcxqO1Dyoyoc72q8_NDsJBAkM8YsLMVx0kUejPy6W_KEUdyOnSi_X5aq439q40gfZ2cfeWQdcXGwz_iUhlzaWsupHyWvxM8oGg806OVP02u35qROCQ7Uf1Ge6SEh_uo8zxmHnoxP0eYxhpq15WRUhhYvrsO43CFIBbKWYi-KlFwLYhqJs7senOeprayOd8lAR-hA5gxFYcRkrGg04cMQWQiAoH4ssCFQrws3vF0W5KCLM"/>
+<!-- Framing Overlay -->
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<!-- Darkened overlay outside the box -->
+<div class="absolute inset-0 bg-black/30"></div>
+<!-- Focus Box -->
+<div class="relative w-64 h-64 border-2 border-white/80 rounded-2xl shadow-[0_0_0_9999px_rgba(0,0,0,0.4)] z-10 flex items-center justify-center">
+<!-- Corner accents -->
+<div class="absolute top-[-2px] left-[-2px] w-6 h-6 border-t-4 border-l-4 border-primary rounded-tl-xl"></div>
+<div class="absolute top-[-2px] right-[-2px] w-6 h-6 border-t-4 border-r-4 border-primary rounded-tr-xl"></div>
+<div class="absolute bottom-[-2px] left-[-2px] w-6 h-6 border-b-4 border-l-4 border-primary rounded-bl-xl"></div>
+<div class="absolute bottom-[-2px] right-[-2px] w-6 h-6 border-b-4 border-r-4 border-primary rounded-br-xl"></div>
+<!-- Center crosshair hint -->
+<div class="w-4 h-4 text-white/50">
+<span class="material-symbols-outlined text-4xl opacity-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">add</span>
+</div>
+</div>
+<p class="relative z-10 mt-8 text-white font-medium text-sm bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm">
+                Align crop within the frame
+            </p>
+</div>
+<!-- Camera Controls Overlay (Flash/Timer) -->
+<div class="absolute top-24 right-4 flex flex-col gap-4 z-20">
+<button class="flex items-center justify-center size-10 rounded-full bg-black/40 text-white backdrop-blur-md hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[20px]">flash_on</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-black/40 text-white backdrop-blur-md hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-black/40 text-white backdrop-blur-md hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[20px]">grid_4x4</span>
+</button>
+</div>
+</main>
+<!-- Bottom Action Sheet -->
+<div class="bg-background-light dark:bg-background-dark rounded-t-3xl -mt-6 relative z-30 pt-8 pb-8 px-6 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] flex flex-col gap-4 min-h-[35vh]">
+<!-- Handle for drawer feel -->
+<div class="absolute top-3 left-1/2 transform -translate-x-1/2 w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full"></div>
+<div class="text-center mb-2">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Capture Crop</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Ensure good lighting for accurate grading</p>
+</div>
+<!-- Primary Action -->
+<button class="w-full flex items-center justify-center gap-3 h-14 bg-primary hover:bg-green-600 text-white rounded-xl shadow-lg shadow-green-500/20 active:scale-[0.98] transition-all duration-200">
+<span class="material-symbols-outlined">photo_camera</span>
+<span class="text-lg font-bold tracking-wide">Take Photo</span>
+</button>
+<!-- Secondary Action -->
+<button class="w-full flex items-center justify-center gap-3 h-14 bg-transparent border-2 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl active:scale-[0.98] transition-all duration-200">
+<span class="material-symbols-outlined">add_photo_alternate</span>
+<span class="text-lg font-semibold">Upload from Gallery</span>
+</button>
+<!-- Multilingual / Help Text -->
+<div class="mt-auto pt-4 flex justify-center items-center gap-4 opacity-60">
+<p class="text-xs text-slate-500 dark:text-slate-400 text-center max-w-[200px]">
+                Supported Formats: JPG, PNG <br/>
+<span class="italic">Formatos: JPG, PNG • Formats : JPG, PNG</span>
+</p>
+</div>
+</div>
+</body></html>

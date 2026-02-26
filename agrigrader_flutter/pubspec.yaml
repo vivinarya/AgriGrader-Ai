@@ -1,0 +1,26 @@
+name: agrigrader_flutter
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  fl_chart: ^1.1.1
+  flutter:
+    sdk: flutter
+  google_fonts: ^8.0.2
+  lucide_icons: ^0.257.0
+  responsive_framework: ^1.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_driver:
+    sdk: flutter
+  test: any
+
+flutter:
+  uses-material-design: true
